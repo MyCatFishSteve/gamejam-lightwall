@@ -14,9 +14,14 @@ public class Lightwall : MonoBehaviour
     [SerializeField]
     public float m_WallSpeed = 10.0f;
 
+    private bool m_Lightweight = false;
+
     private float m_Height = 1.0f;
 
     private Transform m_MeshTransform = null;
+
+    [SerializeField]
+    private LayerMask m_LayerMask = 0;
 
     private bool m_Hit = false;
 
@@ -26,6 +31,14 @@ public class Lightwall : MonoBehaviour
     {
         m_MeshTransform = transform.Find("Mesh");
         Debug.Assert(m_MeshTransform != null, "unable to find lightwall mesh", this);
+
+        // Collide with default non-special game objects
+        m_LayerMask = LayerMask.GetMask("Default");
+        // Collide with lightwalls if we are ourselves a lightwall
+        if (gameObject.layer == LayerMask.NameToLayer("Lightweight"))
+        {
+            m_LayerMask |= LayerMask.GetMask("Lightweight");
+        }
     }
 
     private void FixedUpdate()
@@ -59,7 +72,7 @@ public class Lightwall : MonoBehaviour
     public void ProcessRay()
     {
         Ray ray = new Ray(transform.position + transform.forward * 0.01f, transform.forward);
-        if (Physics.Raycast(ray, out m_HitInfo, 1000.0f))
+        if (Physics.Raycast(ray, out m_HitInfo, 1000.0f, m_LayerMask))
         {
             m_Hit = true;
             m_TargetLength = Vector3.Distance(transform.position, m_HitInfo.point);
