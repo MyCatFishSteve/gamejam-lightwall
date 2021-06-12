@@ -33,7 +33,7 @@ public class Lightwall : IToggle
         Debug.Assert(m_MeshTransform != null, "unable to find lightwall mesh", this);
 
         // Collide with default non-special game objects
-        m_LayerMask = LayerMask.GetMask("Default");
+        m_LayerMask = LayerMask.GetMask("Default", "Player");
         // Collide with lightwalls if we are ourselves a lightwall
         if (gameObject.layer == LayerMask.NameToLayer("Lightweight"))
         {
