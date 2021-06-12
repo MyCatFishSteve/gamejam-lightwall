@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[ExecuteInEditMode]
 public class LightGun : MonoBehaviour
 {
     /// <summary>
@@ -44,6 +43,28 @@ public class LightGun : MonoBehaviour
     private Lightwall m_Lightwall = null;
 
     /// <summary>
+    /// Game object representing the point where the light gun will fire
+    /// </summary>
+    private GameObject m_Reticle = null;
+
+    /// <summary>
+    /// The renderer component of the reticle
+    /// </summary>
+    private Renderer m_ReticleRenderer = null;
+
+    /// <summary>
+    /// The material used to indicate a valid hit contact
+    /// </summary>
+    [SerializeField]
+    private Material m_ValidHitMaterial = null;
+
+    /// <summary>
+    /// The material used to indicate an invalid hit contact
+    /// </summary>
+    [SerializeField]
+    private Material m_InvalidHitMaterial = null;
+
+    /// <summary>
     /// Run a hit test by casting a ray in-front of the player and store the results
     /// </summary>
     private void HitTest()
@@ -61,7 +82,7 @@ public class LightGun : MonoBehaviour
     public void Fire()
     {
         HitTest();
-        if (m_HitInfo.collider.CompareTag(m_PortalWallTag))
+        if (m_Hit && m_HitInfo.collider.CompareTag(m_PortalWallTag))
         {
             m_LightwallGameObject.transform.position = m_HitInfo.point;
             m_LightwallGameObject.SetActive(true);
@@ -70,8 +91,11 @@ public class LightGun : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
+        Debug.Assert(m_ValidHitMaterial != null, "no valid hit material assigned", this);
+        Debug.Assert(m_InvalidHitMaterial != null, "no invalid hit material assigned", this);
+
         Debug.Assert(m_LightWallPrefab != null, "lightwall prefab not set for light gun", this);
         if (m_LightwallGameObject == null)
         {
@@ -79,11 +103,34 @@ public class LightGun : MonoBehaviour
             m_Lightwall = m_LightwallGameObject.GetComponentInChildren<Lightwall>();
             m_LightwallGameObject.SetActive(false);
         }
+
+        Debug.Assert(m_Reticle == null, "reticle should not be initialised", this);
+        m_Reticle = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        m_Reticle.name = "Reticle";
+        m_Reticle.transform.localScale *= 0.5f;
+        Destroy(m_Reticle.GetComponent<SphereCollider>());
+        m_ReticleRenderer = m_Reticle.GetComponent<Renderer>();
+    }
+
+    private void Update()
+    {
+        HitTest();
+        m_Reticle.transform.position = m_HitInfo.point;
+        if (m_Hit)
+        {
+            if (m_HitInfo.collider.CompareTag(m_PortalWallTag))
+            {
+                m_ReticleRenderer.material = m_ValidHitMaterial;
+            }
+            else
+            {
+                m_ReticleRenderer.material = m_InvalidHitMaterial;
+            }
+        }
     }
 
     private void OnDrawGizmos()
     {
-        HitTest();
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, transform.forward * m_HitMaxDistance);
         if (m_Hit)
