@@ -14,7 +14,7 @@ public class Lightwall : MonoBehaviour
     [SerializeField]
     public float m_WallSpeed = 10.0f;
 
-    private bool m_Lightweight = false;
+    public bool m_Enable = true;
 
     private float m_Height = 1.0f;
 
@@ -43,7 +43,14 @@ public class Lightwall : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ProcessRay();
+        if (m_Enable)
+        {
+            ProcessRay();
+        }
+        else
+        {
+            m_TargetLength = 0.0f;
+        }
         m_ActualLength = Mathf.Lerp(m_ActualLength, m_TargetLength, Time.fixedDeltaTime * m_WallSpeed);
         m_ActualLength = Mathf.Clamp(m_ActualLength, 0.0f, m_TargetLength);
         m_MeshTransform.localPosition = new Vector3(0, 0, m_ActualLength / 2.0f);
@@ -69,7 +76,7 @@ public class Lightwall : MonoBehaviour
         }
     }
 
-    public void ProcessRay()
+    private void ProcessRay()
     {
         Ray ray = new Ray(transform.position + transform.forward * 0.01f, transform.forward);
         if (Physics.Raycast(ray, out m_HitInfo, 1000.0f, m_LayerMask))
@@ -82,5 +89,15 @@ public class Lightwall : MonoBehaviour
             m_Hit = false;
             m_TargetLength = 1000.0f;
         }
+    }
+
+    public void EnableWall()
+    {
+        m_Enable = true;
+    }
+
+    public void DisableWall()
+    {
+        m_Enable = false;
     }
 }
