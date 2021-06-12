@@ -16,7 +16,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float currentMoveSpeed;
 
-    [SerializeField]
+    float inputX;
+    float inputY;
+
+    public Vector3 relativeMovement;
+
+    public Animator animationController;
+
     private LightGun m_LightGun;
 
     private void Awake()
@@ -31,8 +37,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        inputX = Mathf.Lerp(inputX, Input.GetAxisRaw("Horizontal"), Time.deltaTime * accelleration);
+        inputY = Mathf.Lerp(inputY, Input.GetAxisRaw("Vertical"), Time.deltaTime * accelleration);
+
         //player movement input
-        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        movement = new Vector3(inputX, 0, inputY);
 
         //deal with deadzones if a joystick is being used
         if(movement.magnitude < deadzone){
@@ -42,7 +51,9 @@ public class PlayerMovement : MonoBehaviour
         //clamp the player movement so that diagonal movement isn't faster than regular movement
         movement = Vector3.ClampMagnitude(movement, 1);
 
-        currentMoveSpeed = Mathf.Lerp(currentMoveSpeed, moveSpeed * movement.magnitude, Time.deltaTime * accelleration);
+        //currentMoveSpeed = Mathf.Lerp(currentMoveSpeed, moveSpeed * movement.magnitude, Time.deltaTime * accelleration);
+
+
 
         //mouse rotation
         mouseWorldPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.transform.position.y - rb.position.y));
@@ -50,6 +61,13 @@ public class PlayerMovement : MonoBehaviour
         mousePos = Input.mousePosition;
 
         transform.rotation = Quaternion.LookRotation(mouseWorldPos - rb.position);
+
+        relativeMovement = transform.InverseTransformDirection(new Vector3(inputX, 0, inputY));
+        relativeMovement = Vector3.ClampMagnitude(relativeMovement, 1);
+
+        //set animations
+        animationController.SetFloat("MoveX", relativeMovement.x);
+        animationController.SetFloat("MoveY", relativeMovement.z);
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -64,6 +82,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //move the player
-        rb.MovePosition(rb.position + movement * currentMoveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
