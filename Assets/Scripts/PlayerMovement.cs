@@ -23,8 +23,12 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animationController;
 
+    private LightGun m_LightGun;
+
     private void Awake()
     {
+        m_LightGun = GetComponent<LightGun>();
+        Debug.Assert(m_LightGun != null, "Unable to get LightGun component", this);
         cam = Camera.main;
     }
 
@@ -65,7 +69,14 @@ public class PlayerMovement : MonoBehaviour
         animationController.SetFloat("MoveX", relativeMovement.x);
         animationController.SetFloat("MoveY", relativeMovement.z);
 
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            m_LightGun.Fire();
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            m_LightGun.Clear();
+        }
     }
 
     private void FixedUpdate()
