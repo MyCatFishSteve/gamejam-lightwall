@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IToggle
+abstract public class IToggle : MonoBehaviour
 {
-    public void Enable();
-    public void Disable();
-    public void Toggle();
+    abstract public void Enable();
+    abstract public void Disable();
+    abstract public void Toggle();
 }

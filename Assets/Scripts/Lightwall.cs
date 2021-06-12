@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Lightwall : MonoBehaviour, IToggle
+public class Lightwall : IToggle
 {
     [SerializeField]
     private float m_ActualLength = 0.0f;
@@ -91,17 +91,17 @@ public class Lightwall : MonoBehaviour, IToggle
         }
     }
 
-    public void Enable()
+    override public void Enable()
     {
         m_Enable = true;
     }
 
-    public void Disable()
+    override public void Disable()
     {
         m_Enable = false;
     }
 
-    public void Toggle()
+    override public void Toggle()
     {
         m_Enable = !m_Enable;
     }
