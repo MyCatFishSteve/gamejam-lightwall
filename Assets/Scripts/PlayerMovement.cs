@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     float inputX;
     float inputY;
 
+    public Vector3 relativeMovement;
+
+    public Animator animationController;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -53,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
         mousePos = Input.mousePosition;
 
         transform.rotation = Quaternion.LookRotation(mouseWorldPos - rb.position);
+
+        relativeMovement = transform.InverseTransformDirection(new Vector3(inputX, 0, inputY));
+        relativeMovement = Vector3.ClampMagnitude(relativeMovement, 1);
+
+        //set animations
+        animationController.SetFloat("MoveX", relativeMovement.x);
+        animationController.SetFloat("MoveY", relativeMovement.z);
+
+        
     }
 
     private void FixedUpdate()
