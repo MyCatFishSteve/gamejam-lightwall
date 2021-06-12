@@ -12,6 +12,8 @@ public class ButtonController : MonoBehaviour
 
     public List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
+    public IToggle targetComponent;
+
     public void Awake()
     {
         CheckState();
@@ -42,9 +44,11 @@ public class ButtonController : MonoBehaviour
     {
         if(rigidbodies.Count > 0){
             buttonBase.material = buttonPressMat;
+            targetComponent.Disable();
             return true;
         }else{
             buttonBase.material = buttonReleasedMat;
+            targetComponent.Enable();
             return false;
         }
     }

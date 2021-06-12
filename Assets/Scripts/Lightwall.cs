@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Lightwall : MonoBehaviour
+public class Lightwall : IToggle
 {
     [SerializeField]
     private float m_ActualLength = 0.0f;
@@ -14,7 +14,7 @@ public class Lightwall : MonoBehaviour
     [SerializeField]
     public float m_WallSpeed = 10.0f;
 
-    private bool m_Lightweight = false;
+    public bool m_Enable = true;
 
     private float m_Height = 1.0f;
 
@@ -33,7 +33,7 @@ public class Lightwall : MonoBehaviour
         Debug.Assert(m_MeshTransform != null, "unable to find lightwall mesh", this);
 
         // Collide with default non-special game objects
-        m_LayerMask = LayerMask.GetMask("Default");
+        m_LayerMask = LayerMask.GetMask("Wall");
         // Collide with lightwalls if we are ourselves a lightwall
         if (gameObject.layer == LayerMask.NameToLayer("Lightweight"))
         {
@@ -43,7 +43,14 @@ public class Lightwall : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ProcessRay();
+        if (m_Enable)
+        {
+            ProcessRay();
+        }
+        else
+        {
+            m_TargetLength = 0.0f;
+        }
         m_ActualLength = Mathf.Lerp(m_ActualLength, m_TargetLength, Time.fixedDeltaTime * m_WallSpeed);
         m_ActualLength = Mathf.Clamp(m_ActualLength, 0.0f, m_TargetLength);
         m_MeshTransform.localPosition = new Vector3(0, 0, m_ActualLength / 2.0f);
@@ -69,7 +76,7 @@ public class Lightwall : MonoBehaviour
         }
     }
 
-    public void ProcessRay()
+    private void ProcessRay()
     {
         Ray ray = new Ray(transform.position + transform.forward * 0.01f, transform.forward);
         if (Physics.Raycast(ray, out m_HitInfo, 1000.0f, m_LayerMask))
@@ -82,5 +89,20 @@ public class Lightwall : MonoBehaviour
             m_Hit = false;
             m_TargetLength = 1000.0f;
         }
+    }
+
+    override public void Enable()
+    {
+        m_Enable = true;
+    }
+
+    override public void Disable()
+    {
+        m_Enable = false;
+    }
+
+    override public void Toggle()
+    {
+        m_Enable = !m_Enable;
     }
 }
