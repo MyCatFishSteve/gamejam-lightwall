@@ -16,8 +16,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float currentMoveSpeed;
 
+    [SerializeField]
+    private LightGun m_LightGun;
+
     private void Awake()
     {
+        m_LightGun = GetComponent<LightGun>();
+        Debug.Assert(m_LightGun != null, "Unable to get LightGun component", this);
         cam = Camera.main;
     }
 
@@ -45,6 +50,15 @@ public class PlayerMovement : MonoBehaviour
         mousePos = Input.mousePosition;
 
         transform.rotation = Quaternion.LookRotation(mouseWorldPos - rb.position);
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            m_LightGun.Fire();
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            m_LightGun.Clear();
+        }
     }
 
     private void FixedUpdate()
