@@ -2242,6 +2242,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6022414702996600999, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022414702996600999, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022414702996600999, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
 --- !u!1001 &5576051393438714328
@@ -2254,14 +2266,6 @@ PrefabInstance:
     - target: {fileID: 5576051391493427432, guid: 8b216a2e088b7394694c3ccf45627ff8, type: 3}
       propertyPath: m_Name
       value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 5576051391493427434, guid: 8b216a2e088b7394694c3ccf45627ff8, type: 3}
-      propertyPath: m_Size.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5576051391493427434, guid: 8b216a2e088b7394694c3ccf45627ff8, type: 3}
-      propertyPath: m_Size.z
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5576051391493427435, guid: 8b216a2e088b7394694c3ccf45627ff8, type: 3}
       propertyPath: m_RootOrder
