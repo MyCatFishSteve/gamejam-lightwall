@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 444493885}
   - component: {fileID: 444493884}
   - component: {fileID: 444493883}
-  m_Layer: 0
-  m_Name: Cube (4)
+  m_Layer: 7
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,8 +230,8 @@ GameObject:
   - component: {fileID: 607314991}
   - component: {fileID: 607314990}
   - component: {fileID: 607314989}
-  m_Layer: 0
-  m_Name: Cube (1)
+  m_Layer: 7
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,8 +418,8 @@ GameObject:
   - component: {fileID: 809167319}
   - component: {fileID: 809167318}
   - component: {fileID: 809167317}
-  m_Layer: 0
-  m_Name: Cube (5)
+  m_Layer: 7
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,8 +596,8 @@ GameObject:
   - component: {fileID: 1512984859}
   - component: {fileID: 1512984858}
   - component: {fileID: 1512984857}
-  m_Layer: 0
-  m_Name: Cube (2)
+  m_Layer: 7
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -691,8 +691,8 @@ GameObject:
   - component: {fileID: 2055323714}
   - component: {fileID: 2055323713}
   - component: {fileID: 2055323712}
-  m_Layer: 0
-  m_Name: Cube (3)
+  m_Layer: 7
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 2133856771}
   - component: {fileID: 2133856770}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -975,6 +975,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1198986925922775031, guid: 23b8c60998e2d5747b9364aa2f14be30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814882266899921906, guid: 23b8c60998e2d5747b9364aa2f14be30, type: 3}
+      propertyPath: m_LayerMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8572042507973551662, guid: 23b8c60998e2d5747b9364aa2f14be30, type: 3}

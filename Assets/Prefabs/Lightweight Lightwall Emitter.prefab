@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208832575558489095}
   - component: {fileID: 5814882266899921906}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Lightwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActualLength: 0
-  m_TargetLength: 4.0304456
+  m_TargetLength: 1000
   m_WallSpeed: 10
+  m_Enable: 1
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 65
@@ -60,7 +61,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7464052819913803093}
   - component: {fileID: 1037504734248459975}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +108,7 @@ GameObject:
   - component: {fileID: 1246604071382805316}
   - component: {fileID: 4331688407532304308}
   - component: {fileID: 9153170279709694640}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +189,7 @@ GameObject:
   - component: {fileID: 4291173487419757974}
   - component: {fileID: 4795581422419444368}
   - component: {fileID: 1722306772225457581}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1198986925922775031}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Lightweight Lightwall Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +302,7 @@ GameObject:
   - component: {fileID: 737836400542649771}
   - component: {fileID: 346002000762756761}
   - component: {fileID: 7729956549984081296}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Lightweight Emitter Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
