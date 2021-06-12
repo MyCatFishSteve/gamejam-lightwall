@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class Lightwall : MonoBehaviour
 {
     [SerializeField]
@@ -47,6 +48,7 @@ public class Lightwall : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawSphere(transform.position + transform.forward * m_MeshTransform.localScale.z, 0.05f);
 
+        ProcessRay();
         if (m_Hit)
         {
             Gizmos.color = Color.red;
