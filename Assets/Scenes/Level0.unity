@@ -6476,14 +6476,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5058575475809935500, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
-      propertyPath: unlocked
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5058575475809935500, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
-      propertyPath: doorTravelDistance
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
 --- !u!1001 &7181530623861450248
