@@ -33,7 +33,7 @@ public class Lightwall : IToggle
         Debug.Assert(m_MeshTransform != null, "unable to find lightwall mesh", this);
 
         // Collide with default non-special game objects
-        m_LayerMask = LayerMask.GetMask("Wall");
+        m_LayerMask = LayerMask.GetMask("Default");
         // Collide with lightwalls if we are ourselves a lightwall
         if (gameObject.layer == LayerMask.NameToLayer("Lightweight"))
         {
@@ -45,12 +45,11 @@ public class Lightwall : IToggle
     {
         if (m_Enable)
         {
-            Debug.Log("Enabled");
-            ProcessRay();
+            HitTest();
+            m_TargetLength = m_HitInfo.distance;
         }
         else
         {
-            Debug.Log("Disabled");
             m_ActualLength = 0.0f;
             m_TargetLength = 0.0f;
         }
@@ -63,6 +62,8 @@ public class Lightwall : IToggle
 
     private void OnDrawGizmos()
     {
+        HitTest();
+
         // Draw ray of current lightwall length
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * m_MeshTransform.localScale.z);
@@ -71,7 +72,6 @@ public class Lightwall : IToggle
         Gizmos.color = Color.blue;
         Gizmos.DrawSphere(transform.position + transform.forward * m_MeshTransform.localScale.z, 0.05f);
 
-        ProcessRay();
         if (m_Hit)
         {
             Gizmos.color = Color.red;
@@ -79,19 +79,10 @@ public class Lightwall : IToggle
         }
     }
 
-    private void ProcessRay()
+    private void HitTest()
     {
         Ray ray = new Ray(transform.position + transform.forward * 0.01f, transform.forward);
-        if (Physics.Raycast(ray, out m_HitInfo, 1000.0f, m_LayerMask))
-        {
-            m_Hit = true;
-            m_TargetLength = m_HitInfo.distance;
-        }
-        else
-        {
-            m_Hit = false;
-            m_TargetLength = 1000.0f;
-        }
+        m_Hit = Physics.Raycast(ray, out m_HitInfo, 1000.0f, m_LayerMask);
     }
 
     override public void Enable()
@@ -108,8 +99,5 @@ public class Lightwall : IToggle
         m_TargetLength = 0.0f;
     }
 
-    override public void Toggle()
-    {
-        m_Enable = !m_Enable;
-    }
+    override public void Toggle() => m_Enable = !m_Enable;
 }
