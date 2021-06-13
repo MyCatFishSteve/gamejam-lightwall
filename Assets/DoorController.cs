@@ -19,6 +19,10 @@ public class DoorController : IToggle
 
     private Vector3 doorStartPos;
 
+    public AudioSource audioS;
+    public AudioClip doorOpenSFX;
+    public AudioClip doorCloseSFX;
+
     private void Awake()
     {
         doorStartPos = doorLeft.position;
@@ -53,13 +57,21 @@ public class DoorController : IToggle
 
     override public void Enable()
     {
+        if(unlocked == true){
+            return;
+        }
         unlocked = true;
+        audioS.PlayOneShot(doorOpenSFX);
         SetLights(unlocked);
     }
 
     override public void Disable()
     {
+        if(unlocked == false){
+            return;
+        }
         unlocked = false;
+        audioS.PlayOneShot(doorCloseSFX);
         SetLights(unlocked);
     }
 

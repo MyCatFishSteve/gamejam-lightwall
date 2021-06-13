@@ -29,8 +29,13 @@ public class PlayerMovement : MonoBehaviour
     private float resetProg;
     public float resetTime = 1.0f;
 
+    public AudioSource audioS;
+    public AudioClip fireSFX;
+
+
     private void Awake()
     {
+        audioS = gameObject.GetComponent<AudioSource>();
         m_LightGun = GetComponent<LightGun>();
         Debug.Assert(m_LightGun != null, "Unable to get LightGun component", this);
         cam = Camera.main;
@@ -72,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             m_LightGun.Fire();
+            
         }
         if (Input.GetButtonDown("Fire2"))
         {

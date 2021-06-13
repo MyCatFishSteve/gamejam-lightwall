@@ -77,6 +77,17 @@ public class LightGun : MonoBehaviour
     private Transform m_LineOrigin;
 
     /// <summary>
+    /// Hold a reference to the player movement script so I can steal from it :>
+    /// </summary>
+    [SerializeField]
+    private PlayerMovement m_PlayerMovement;
+
+    private void Awake()
+    {
+        m_PlayerMovement = gameObject.GetComponent<PlayerMovement>();
+    }
+
+    /// <summary>
     /// Run a hit test by casting a ray in-front of the player and store the results
     /// </summary>
     private void HitTest()
@@ -96,6 +107,7 @@ public class LightGun : MonoBehaviour
         HitTest();
         if (m_Hit && m_HitInfo.collider.CompareTag(m_PortalWallTag))
         {
+            m_PlayerMovement.audioS.PlayOneShot(m_PlayerMovement.fireSFX);
             // Recreate the lightwall game object so we have the
             // pusher prefab restored.
             Destroy(m_LightwallGameObject);

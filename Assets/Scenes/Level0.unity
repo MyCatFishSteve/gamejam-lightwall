@@ -4519,10 +4519,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1868858472, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
-      propertyPath: levelName
-      value: Level1
-      objectReference: {fileID: 0}
     - target: {fileID: 2512826732201700211, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
       propertyPath: m_Name
       value: ExitDoor
