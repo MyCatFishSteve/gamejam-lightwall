@@ -104,7 +104,7 @@ public class LightGun : MonoBehaviour
             m_LightwallGameObject.transform.position = m_HitInfo.point;
             m_LightwallGameObject.SetActive(true);
             m_Lightwall.Enable();
-            m_LightwallGameObject.transform.rotation = Quaternion.FromToRotation(Vector3.forward, m_HitInfo.normal);
+            m_LightwallGameObject.transform.rotation = Quaternion.LookRotation(m_HitInfo.normal, Vector3.up);
         }
     }
 
