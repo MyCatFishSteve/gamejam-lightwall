@@ -5,6 +5,8 @@ using UnityEngine;
 public class ButtonController : MonoBehaviour
 {
     public bool activated = false;
+    public bool inverted = false;
+    public bool toggle = false;
     public Renderer buttonBase;
 
     public Material buttonPressMat;
@@ -25,9 +27,10 @@ public class ButtonController : MonoBehaviour
         if(rb != null){
             rigidbodies.Add(rb);
             activated = CheckState();
-            Debug.Log("Pressed");
+            PerformAction();
         }
     }
+
     public void OnTriggerExit(Collider other)
     {
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
@@ -36,6 +39,7 @@ public class ButtonController : MonoBehaviour
             if (rigidbodies.Contains(rb)){
                 rigidbodies.Remove(rb);
                 activated = CheckState();
+                PerformAction();
             }
         }
     }
@@ -44,12 +48,45 @@ public class ButtonController : MonoBehaviour
     {
         if(rigidbodies.Count > 0){
             buttonBase.material = buttonPressMat;
-            targetComponent.Disable();
-            return true;
+            return Invert(true);
         }else{
             buttonBase.material = buttonReleasedMat;
-            targetComponent.Enable();
-            return false;
+            return Invert(false);
         }
+    }
+
+    //this has kinda become a slight mess but this allows for inverting stuff to work
+    private void PerformAction()
+    {
+        if (toggle){
+            if (activated){
+                targetComponent.Toggle();
+            }
+            return;
+        }
+
+        if (activated){
+            targetComponent.Enable();
+        }else{
+            targetComponent.Disable();
+        }
+    }
+
+    private bool Invert(bool state)
+    {
+        if (inverted){
+            return !state;
+        }else{
+            return state;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        // Draw ray between button and object that it controls
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, targetComponent.transform.position);
+
     }
 }
