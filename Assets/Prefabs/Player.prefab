@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 610245905007480105}
   - component: {fileID: 610245905007480104}
   - component: {fileID: 1741030786}
+  - component: {fileID: 673516680}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -105,6 +106,24 @@ MonoBehaviour:
   cameraHeight: 14
   cameraDistance: 1
   cameraPositionClamps: []
+--- !u!114 &673516680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610245905007480111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b13e222750f934dad4a8e2fbf14b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PortalWallTag: Wall
+  m_Hit: 0
+  m_HitMaxDistance: 200
+  m_LightWallPrefab: {fileID: 4894424320325967356, guid: 060f233e0f1e9bb4aa3991d262f1f44e, type: 3}
+  m_ValidHitMaterial: {fileID: 2100000, guid: a7f420e7a79b6044db507f4790361d83, type: 2}
+  m_InvalidHitMaterial: {fileID: 2100000, guid: 80abe73d1b2e477439e8b3c17eb2adcb, type: 2}
 --- !u!95 &854911710
 Animator:
   serializedVersion: 3
