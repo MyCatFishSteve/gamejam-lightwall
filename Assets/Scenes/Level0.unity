@@ -2276,6 +2276,38 @@ PrefabInstance:
       propertyPath: m_LightWallPrefab
       value: 
       objectReference: {fileID: 4894424320325967356, guid: 060f233e0f1e9bb4aa3991d262f1f44e, type: 3}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Positions.Array.data[0].z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Positions.Array.data[1].z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.06451607
+      objectReference: {fileID: 0}
     - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
       propertyPath: Camera
       value: 
