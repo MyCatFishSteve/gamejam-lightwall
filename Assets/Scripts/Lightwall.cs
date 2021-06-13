@@ -27,6 +27,8 @@ public class Lightwall : IToggle
 
     private RaycastHit m_HitInfo;
 
+    private LightSensor m_CurrentLightSensor = null;
+
     private void Start()
     {
         m_MeshTransform = transform.Find("Mesh");
@@ -53,7 +55,16 @@ public class Lightwall : IToggle
                 LightSensor sensor = m_HitInfo.collider.GetComponent<LightSensor>();
                 if (sensor)
                 {
+                    m_CurrentLightSensor = sensor;
                     sensor.Activate();
+                }
+                else
+                {
+                    if (m_CurrentLightSensor)
+                    {
+                        m_CurrentLightSensor.Deactivate();
+                        m_CurrentLightSensor = null;
+                    }
                 }
             }
         }
@@ -105,6 +116,16 @@ public class Lightwall : IToggle
         m_Enable = false;
         m_ActualLength = 0.0f;
         m_TargetLength = 0.0f;
+    }
+
+    private void OnDisable()
+    {
+        Disable();
+        if (m_CurrentLightSensor)
+        {
+            m_CurrentLightSensor.Deactivate();
+            m_CurrentLightSensor = null;
+        }
     }
 
     override public void Toggle() => m_Enable = !m_Enable;
