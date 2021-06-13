@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1208281942}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &610245905007480104
 MonoBehaviour:
@@ -83,13 +83,9 @@ MonoBehaviour:
   accelleration: 8
   deadzone: 0.25
   rb: {fileID: 610245905007480105}
-  movement: {x: 0, y: 0, z: 0}
-  mouseWorldPos: {x: 0, y: 0, z: 0}
-  mousePos: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
-  currentMoveSpeed: 0
-  relativeMovement: {x: 0, y: 0, z: 0}
   animationController: {fileID: 854911710}
+  resetTime: 1
 --- !u!114 &1741030786
 MonoBehaviour:
   m_ObjectHideFlags: 0

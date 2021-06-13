@@ -2272,70 +2272,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 673516680, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_LightWallPrefab
-      value: 
-      objectReference: {fileID: 4894424320325967356, guid: 060f233e0f1e9bb4aa3991d262f1f44e, type: 3}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Positions.Array.data[0].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Positions.Array.data[0].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Positions.Array.data[0].z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Positions.Array.data[1].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Positions.Array.data[1].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Positions.Array.data[1].z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208281942, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.06451607
-      objectReference: {fileID: 0}
     - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
       propertyPath: Camera
       value: 
       objectReference: {fileID: 927258932}
-    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: bounds.w
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: bounds.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: bounds.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: bounds.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: cameraHeight
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
-      propertyPath: cameraDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 610245905007480111, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4579,6 +4519,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1868858472, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
+      propertyPath: levelName
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 2512826732201700211, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
       propertyPath: m_Name
       value: ExitDoor
@@ -4626,14 +4570,6 @@ PrefabInstance:
     - target: {fileID: 2996171616243462601, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5058575475809935500, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
-      propertyPath: unlocked
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5058575475809935500, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
-      propertyPath: doorTravelDistance
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f9f634266fc0f44b82310640eae58f2, type: 3}
