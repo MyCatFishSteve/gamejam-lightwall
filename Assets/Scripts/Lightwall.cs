@@ -45,10 +45,13 @@ public class Lightwall : IToggle
     {
         if (m_Enable)
         {
+            Debug.Log("Enabled");
             ProcessRay();
         }
         else
         {
+            Debug.Log("Disabled");
+            m_ActualLength = 0.0f;
             m_TargetLength = 0.0f;
         }
         m_ActualLength = Mathf.Lerp(m_ActualLength, m_TargetLength, Time.fixedDeltaTime * m_WallSpeed);
@@ -82,7 +85,7 @@ public class Lightwall : IToggle
         if (Physics.Raycast(ray, out m_HitInfo, 1000.0f, m_LayerMask))
         {
             m_Hit = true;
-            m_TargetLength = Vector3.Distance(transform.position, m_HitInfo.point);
+            m_TargetLength = m_HitInfo.distance;
         }
         else
         {
@@ -94,11 +97,15 @@ public class Lightwall : IToggle
     override public void Enable()
     {
         m_Enable = true;
+        m_ActualLength = 0.0f;
+        m_TargetLength = 0.0f;
     }
 
     override public void Disable()
     {
         m_Enable = false;
+        m_ActualLength = 0.0f;
+        m_TargetLength = 0.0f;
     }
 
     override public void Toggle()
