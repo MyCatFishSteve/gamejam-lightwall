@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
+  inverted: 0
+  toggle: 0
   buttonBase: {fileID: 5576051392244477412}
   buttonPressMat: {fileID: 2100000, guid: bba8eb1520e7b864caed2cb5db0e23c4, type: 2}
   buttonReleasedMat: {fileID: 2100000, guid: 904c599fa82e5264ba247071b20280e2, type: 2}

@@ -80,4 +80,13 @@ public class ButtonController : MonoBehaviour
             return state;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+
+        // Draw ray between button and object that it controls
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, targetComponent.transform.position);
+
+    }
 }
