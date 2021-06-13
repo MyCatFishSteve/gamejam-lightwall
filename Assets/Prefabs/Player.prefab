@@ -104,9 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
   smoothTime: 0.2
-  cameraHeight: 14
+  cameraHeight: 18
   cameraDistance: 1
-  cameraPositionClamps: []
+  bounds: {x: -1, y: 8, z: 1, w: 2}
 --- !u!114 &673516680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -178,7 +178,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.06451607
         inSlope: 0
         outSlope: 0
         tangentMode: 0
