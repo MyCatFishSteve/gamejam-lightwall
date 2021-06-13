@@ -47,6 +47,15 @@ public class Lightwall : IToggle
         {
             HitTest();
             m_TargetLength = m_HitInfo.distance;
+            if (m_Hit)
+            {
+                
+                LightSensor sensor = m_HitInfo.collider.GetComponent<LightSensor>();
+                if (sensor)
+                {
+                    sensor.Activate();
+                }
+            }
         }
         else
         {
@@ -57,7 +66,6 @@ public class Lightwall : IToggle
         m_ActualLength = Mathf.Clamp(m_ActualLength, 0.0f, m_TargetLength);
         m_MeshTransform.localPosition = new Vector3(0, 0, m_ActualLength / 2.0f);
         m_MeshTransform.localScale = new Vector3(1, m_Height, m_ActualLength);
-
     }
 
     private void OnDrawGizmos()

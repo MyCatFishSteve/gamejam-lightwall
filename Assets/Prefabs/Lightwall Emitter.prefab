@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8083558719944462809}
   - component: {fileID: 928573321337701597}
   - component: {fileID: 1304266807300171651}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Lightweight Emitter Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6740202722549850375}
   - component: {fileID: 4935381612642521744}
   - component: {fileID: 80940518904658820}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 2590856823976237470}
   - component: {fileID: 1775632881577080217}
   - component: {fileID: 3638971524401924725}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: LightEdge (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537356619511292973}
   - component: {fileID: 8102001565051109873}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Lightwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 3312556937064557979}
   - component: {fileID: 7963711716506134377}
   - component: {fileID: 4206584858104015238}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3381701019976262341}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Lightwall Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 2380547019282415714}
   - component: {fileID: 2352276563530512068}
   - component: {fileID: 4351062878412071388}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: LightEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7605728794019374723}
   - component: {fileID: 3314815324250797096}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
