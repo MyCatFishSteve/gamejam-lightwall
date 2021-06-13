@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5576051391493427432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.101963, y: 0.00000023841858, z: -3.2627947}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 5576051392055822396}
   - {fileID: 5576051392244477414}
@@ -64,6 +64,7 @@ MonoBehaviour:
   buttonPressMat: {fileID: 2100000, guid: bba8eb1520e7b864caed2cb5db0e23c4, type: 2}
   buttonReleasedMat: {fileID: 2100000, guid: 904c599fa82e5264ba247071b20280e2, type: 2}
   rigidbodies: []
+  targetComponent: {fileID: 0}
 --- !u!1 &5576051392055822392
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 58d70a2bc3b41b64abc1e3c1f162593c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
