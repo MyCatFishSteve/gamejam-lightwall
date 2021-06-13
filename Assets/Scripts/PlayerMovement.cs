@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource audioS;
     public AudioClip fireSFX;
 
+    private CameraScript cs;
+
 
     private void Awake()
     {
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         m_LightGun = GetComponent<LightGun>();
         Debug.Assert(m_LightGun != null, "Unable to get LightGun component", this);
         cam = Camera.main;
+        cs = gameObject.GetComponent<CameraScript>();
     }
 
     ///forwardSpeed = Mathf.Lerp(forwardSpeed, v* MovementSpeed, Time.deltaTime* accellerationGround);
@@ -88,7 +91,12 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
+
+        //inform the camera script the distance the mouse is from the player
+        float md = Vector3.Distance(transform.position, mouseWorldPos);
+        cs.SetMouseDistance(md);
+
+
     }
 
     private void FixedUpdate()

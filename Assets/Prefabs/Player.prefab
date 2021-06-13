@@ -104,7 +104,8 @@ MonoBehaviour:
   Camera: {fileID: 0}
   smoothTime: 0.2
   cameraHeight: 18
-  cameraDistance: 1
+  cameraDistance: 3
+  mouseInfluence: 0.5
   bounds: {x: -1, y: 8, z: 1, w: 2}
 --- !u!114 &673516680
 MonoBehaviour:
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_InvalidHitMaterial: {fileID: 2100000, guid: 80abe73d1b2e477439e8b3c17eb2adcb, type: 2}
   m_LineRenderer: {fileID: 1208281942}
   m_LineOrigin: {fileID: 0}
+  m_PlayerMovement: {fileID: 0}
 --- !u!120 &1208281942
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -145,7 +147,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 80abe73d1b2e477439e8b3c17eb2adcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
