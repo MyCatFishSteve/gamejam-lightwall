@@ -65,6 +65,18 @@ public class LightGun : MonoBehaviour
     private Material m_InvalidHitMaterial = null;
 
     /// <summary>
+    /// This line renderer will draw a laser between the player and the target reticle
+    /// </summary>
+    [SerializeField]
+    private LineRenderer m_LineRenderer;
+
+    /// <summary>
+    /// This is the origin point of the laser sight.
+    /// </summary>
+    [SerializeField]
+    private Transform m_LineOrigin;
+
+    /// <summary>
     /// Run a hit test by casting a ray in-front of the player and store the results
     /// </summary>
     private void HitTest()
@@ -115,23 +127,39 @@ public class LightGun : MonoBehaviour
         m_Reticle.transform.localScale *= 0.5f;
         Destroy(m_Reticle.GetComponent<SphereCollider>());
         m_ReticleRenderer = m_Reticle.GetComponent<Renderer>();
+
+        //if the line origin is empty, default to the player position.
+        if(m_LineOrigin == null){
+            m_LineOrigin = transform;
+        }
     }
 
     private void Update()
     {
         HitTest();
         m_Reticle.transform.position = m_HitInfo.point;
+
+        //set line positions to 0 by default
+        m_LineRenderer.SetPosition(1, Vector3.zero);
+        m_LineRenderer.SetPosition(0, Vector3.zero);
+
         if (m_Hit)
         {
+            //draw line renderer if we get a hit
+            m_LineRenderer.SetPosition(1, m_LineOrigin.position);
+            m_LineRenderer.SetPosition(0, m_HitInfo.point);
+
             if (m_HitInfo.collider.CompareTag(m_PortalWallTag))
             {
                 m_ReticleRenderer.material = m_ValidHitMaterial;
+                m_LineRenderer.materials[0] = m_ValidHitMaterial;
             }
             else
             {
                 m_ReticleRenderer.material = m_InvalidHitMaterial;
             }
         }
+
     }
 
     private void OnDrawGizmos()
