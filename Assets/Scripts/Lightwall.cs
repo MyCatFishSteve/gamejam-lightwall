@@ -89,7 +89,7 @@ public class Lightwall : IToggle
 
     private void HitTest()
     {
-        Ray ray = new Ray(transform.position + transform.forward * 0.01f, transform.forward);
+        Ray ray = new Ray(transform.position + transform.forward * 0.01f - (transform.up * 0.75f), transform.forward);
         m_Hit = Physics.Raycast(ray, out m_HitInfo, 1000.0f, m_LayerMask);
     }
 

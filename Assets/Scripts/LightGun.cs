@@ -84,6 +84,11 @@ public class LightGun : MonoBehaviour
         HitTest();
         if (m_Hit && m_HitInfo.collider.CompareTag(m_PortalWallTag))
         {
+            // Recreate the lightwall game object so we have the
+            // pusher prefab restored.
+            Destroy(m_LightwallGameObject);
+            m_LightwallGameObject = Instantiate(m_LightWallPrefab);
+
             m_LightwallGameObject.transform.position = m_HitInfo.point;
             m_LightwallGameObject.SetActive(true);
             m_Lightwall.Enable();
