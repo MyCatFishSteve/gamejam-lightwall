@@ -32,4 +32,13 @@ public class LightSensor : MonoBehaviour
             return;
         m_TargetComponent.Disable();
     }
+
+    private void OnDrawGizmos()
+    {
+
+        // Draw ray between button and object that it controls
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, m_TargetComponent.transform.position);
+
+    }
 }

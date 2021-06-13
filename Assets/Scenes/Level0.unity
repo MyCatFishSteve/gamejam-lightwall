@@ -2312,6 +2312,30 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 927258932}
+    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: bounds.w
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: bounds.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: bounds.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: bounds.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: cameraHeight
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741030786, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
+      propertyPath: cameraDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 610245905007480111, guid: 8c42eb0a299b43345a2f960e457eb02b, type: 3}
       propertyPath: m_Name
       value: Player
