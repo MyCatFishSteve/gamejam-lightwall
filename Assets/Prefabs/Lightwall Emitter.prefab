@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Enable: 1
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
 --- !u!1 &3896293009715475545
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,5 +534,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 1, z: 0.975}
-  m_Center: {x: 0, y: 0, z: -0.025}
+  m_Size: {x: 0.01, y: 1, z: 1.01}
+  m_Center: {x: 0, y: 0, z: -0.005}
