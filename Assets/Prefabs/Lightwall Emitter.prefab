@@ -289,7 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActualLength: 0
   m_TargetLength: 1000
-  m_WallSpeed: 7.5
+  m_WallSpeed: 100
   m_Enable: 1
   m_LayerMask:
     serializedVersion: 2
