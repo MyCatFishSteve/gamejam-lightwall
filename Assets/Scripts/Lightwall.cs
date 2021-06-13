@@ -16,6 +16,8 @@ public class Lightwall : IToggle
 
     public bool m_Enable = true;
 
+    public bool m_Inverted = true;
+
     private float m_Height = 3.0f;
 
     private Transform m_MeshTransform = null;

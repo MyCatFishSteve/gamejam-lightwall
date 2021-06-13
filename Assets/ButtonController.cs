@@ -18,7 +18,8 @@ public class ButtonController : MonoBehaviour
 
     public void Awake()
     {
-        CheckState();
+        activated = CheckState();
+        PerformAction();
     }
 
     public void OnTriggerEnter(Collider other)
